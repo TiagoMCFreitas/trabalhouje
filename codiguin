@@ -10,9 +10,11 @@ public class JavaApplication6 {
         double valoresPrato [][] = new double [maxLin][maxCol];
         double pratoPadrao [][] = new double [maxLin2] [maxCol2];
         int i;
-        int j = 0;
+        int j;
+        int porcaoPrato = 0;
         char s;
         int novoPreco;
+        
         
         
         pratoPadrao[0][0] = 4;
@@ -37,8 +39,9 @@ public class JavaApplication6 {
 
          do{
             System.out.println("Deseja alterar o preço das porções? (se não digite n)" ); 
-            s = leia.next().charAt(0);
-           do{ 
+            opc = leia.next().charAt(0);
+           if(opc != 'n'){
+            do{ 
             System.out.println("Digite o valor do condimento que deseja alterar (0 - arroz, 1 - carne, 2 - salada, 3 - tropeiro)");
             i = leia.nextInt();
             System.out.println("Digite o novo valor: ");
@@ -49,20 +52,28 @@ public class JavaApplication6 {
             
             System.out.println("Para sair digite (n)");
             s = leia.next().charAt(0);
-
+            
            }while(s != 'n');  
-            
-            
-        
-                
-            
-            
-            
-            
+           }
+             System.out.println("Escolha o prato desejado:(0 - Prato 1 , 1 - Prato 2 , 2 - Prato 3 ");
+             j = leia.nextInt();
+             
+             
+             System.out.println("\tOs condimentos presentes no prato são: ");
+             System.out.println("\n Arroz " + valoresPrato [j][porcaoPrato]);
+             porcaoPrato++;
+             System.out.println("\n Carne " + valoresPrato [j][porcaoPrato]);
+             porcaoPrato++;
+             System.out.println("\n Salada " + valoresPrato [j][porcaoPrato]);
+             porcaoPrato++;
+             System.out.println("\n Tropeiro " + valoresPrato [j][porcaoPrato]);
         
             
             
         System.out.println("Digite (n) para sair");    
         opc = leia.next().charAt(0);
         }while(opc != 'n');
+        
+        
+                    
         
