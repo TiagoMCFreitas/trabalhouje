@@ -1,4 +1,5 @@
 package javaapplication6;
+
 import java.util.Scanner;
 
 public class JavaApplication6 {
@@ -6,74 +7,113 @@ public class JavaApplication6 {
     public static void main(String[] args) {
         Scanner leia = new Scanner(System.in);
         char opc;
-        int maxLin = 3, maxCol = 4, maxLin2 = 4 , maxCol2 = 1;
-        double valoresPrato [][] = new double [maxLin][maxCol];
-        double pratoPadrao [][] = new double [maxLin2] [maxCol2];
-        int i;
+        int maxLin = 3, maxCol = 4, maxLin2 = 4, maxCol2 = 1;
+        double valoresPrato[][] = new double[maxLin][maxCol];
+        double pratoPadrao[][] = new double[maxLin2][maxCol2];
+        int o = 0;
         int j;
+        int i = 0;
         int porcaoPrato = 0;
         char s;
-        int novoPreco;
-        
+        int novoPreco = 0;
+        int novoValor[] = new int [4];
+        int cond;
+        int valor;
+        int arroz = 0 ,carne = 0 ,salada = 0 ,tropeiro = 0;
+        double total = 0;
+        int cont;
         
         
         pratoPadrao[0][0] = 4;
         pratoPadrao[1][0] = 7;
-        pratoPadrao [2][0] = 3;
-        pratoPadrao [3][0] = 4;
-        
+        pratoPadrao[2][0] = 3;
+        pratoPadrao[3][0] = 4;
+
         valoresPrato[0][0] = 2;
         valoresPrato[0][1] = 2;
         valoresPrato[0][2] = 1;
         valoresPrato[0][3] = 1;
-        
+
         valoresPrato[1][0] = 1;
         valoresPrato[1][1] = 2;
         valoresPrato[1][2] = 1;
-        valoresPrato[1][3] = 1;        
+        valoresPrato[1][3] = 1;
 
         valoresPrato[2][0] = 2;
         valoresPrato[2][1] = 2;
         valoresPrato[2][2] = 0;
-        valoresPrato[2][3] = 3;        
+        valoresPrato[2][3] = 3;
 
-         do{
-            System.out.println("Deseja alterar o preço das porções? (se não digite n)" ); 
+        do {
+            System.out.println("Deseja alterar o preço das porções? (se não digite n)");
             opc = leia.next().charAt(0);
-           if(opc != 'n'){
-            do{ 
-            System.out.println("Digite o valor do condimento que deseja alterar (0 - arroz, 1 - carne, 2 - salada, 3 - tropeiro)");
-            i = leia.nextInt();
-            System.out.println("Digite o novo valor: ");
-            novoPreco = leia.nextInt();
-            pratoPadrao[i][0] = novoPreco;
+            if (opc != 'n') {
+                do {
+                    System.out.println("Digite o valor do condimento que deseja alterar (0 - arroz, 1 - carne, 2 - salada, 3 - tropeiro)");
+                    i = leia.nextInt();
+                    System.out.println("Digite o novo valor: ");
+                    novoPreco = leia.nextInt();
+                    pratoPadrao[i][0] = novoPreco;
+
+                    System.out.println("novo preco: " + pratoPadrao[i][0]);
+
+                    System.out.println("Para sair digite (n)");
+                    s = leia.next().charAt(0);
+
+                } while (s != 'n');
+            }
+            System.out.println("Escolha o prato desejado:(0 - Prato 1 , 1 - Prato 2 , 2 - Prato 3 ");
+            j = leia.nextInt();
+
+            System.out.println("\tOs condimentos presentes no prato são: ");
+            System.out.println("\n Arroz " + valoresPrato[j][porcaoPrato]);
+            porcaoPrato++;
+            System.out.println("\n Carne " + valoresPrato[j][porcaoPrato]);
+            porcaoPrato++;
+            System.out.println("\n Salada " + valoresPrato[j][porcaoPrato]);
+            porcaoPrato++;
+            System.out.println("\n Tropeiro " + valoresPrato[j][porcaoPrato]);
             
-            System.out.println("novo preco: " + pratoPadrao[i][0]);
+            porcaoPrato = 0;
+            for(cont = 0; cont <= 3 ; cont++)
             
-            System.out.println("Para sair digite (n)");
-            s = leia.next().charAt(0);
+            {
+            porcaoPrato++;
             
-           }while(s != 'n');  
-           }
-             System.out.println("Escolha o prato desejado:(0 - Prato 1 , 1 - Prato 2 , 2 - Prato 3 ");
-             j = leia.nextInt();
+            if(cont == 0){
+             arroz = (int) (valoresPrato[j][porcaoPrato] * pratoPadrao[0][0]);   
+               }
+             if(cont == 1){
+                carne = (int) (valoresPrato[j][porcaoPrato] * pratoPadrao [1][0]);
+                
+            }
+            else if(cont == 2){
+                salada = (int) (valoresPrato[j][porcaoPrato] * pratoPadrao [2][0]);
+                
+            }
+            else if(cont == 3){
+                tropeiro = (int) (valoresPrato[j][porcaoPrato] * pratoPadrao [3][0]);
+                
+            }
+
+            
+            total = arroz + carne + salada + tropeiro;
+            
+            }   
+            
+            
              
-             
-             System.out.println("\tOs condimentos presentes no prato são: ");
-             System.out.println("\n Arroz " + valoresPrato [j][porcaoPrato]);
-             porcaoPrato++;
-             System.out.println("\n Carne " + valoresPrato [j][porcaoPrato]);
-             porcaoPrato++;
-             System.out.println("\n Salada " + valoresPrato [j][porcaoPrato]);
-             porcaoPrato++;
-             System.out.println("\n Tropeiro " + valoresPrato [j][porcaoPrato]);
-        
+            
+         
+            
+            System.out.printf("O valor do seu prato é: R$%.2f\n" ,total);
             
             
-        System.out.println("Digite (n) para sair");    
-        opc = leia.next().charAt(0);
-        }while(opc != 'n');
+            System.out.println("Digite (n) para sair");
+            opc = leia.next().charAt(0);
+         
+        }while (opc != 'n');
+
         
-        
-                    
-        
+    }       
+}
