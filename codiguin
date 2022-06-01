@@ -1,7 +1,14 @@
+package javaapplication6;
+
 import java.util.Scanner;
 
-//programajantinha ver2.2
-public class trabalhouje {
+/**
+ *
+ * @author aluno
+ */
+public class NewClass {
+   
+
     public static void main(String[] args) {
         Scanner leia = new Scanner(System.in);
         char opc, s;
@@ -11,8 +18,8 @@ public class trabalhouje {
         int j;
         int i = 0;
         int porcaoPrato = 0;
-        int novoPreco = 0;
-        int novoValor;
+        double novoPreco = 0;
+        double novoValor;
         double arroz = 0;
         double carne = 0;
         double salada = 0;
@@ -57,14 +64,14 @@ public class trabalhouje {
                 // novamente
                 opc = leia.next().charAt(0);
             }
-            if (opc != 'n' && opc != 'c') { // comando para alterar o preço das porções
+            if (opc != 'n') { // comando para alterar o preço das porções
                 do {
                     System.out.println(
                             "Digite o valor do condimento que deseja alterar (0 - arroz, 1 - carne, 2 - salada, 3 - tropeiro)");
                     i = leia.nextInt();
 
                     System.out.println("Digite o novo valor do condimento: ");
-                    novoPreco = leia.nextInt();
+                    novoPreco = leia.nextDouble();
 
                     pratoPadrao[i][0] = novoPreco;
 
@@ -155,11 +162,12 @@ public class trabalhouje {
             total = arroz + carne + salada + tropeiro;
             System.out.printf("O valor do seu prato é: R$%.2f\n", total);
 
-            System.out.println("Digite (n) para sair");
+            System.out.println("Digite (n) para sair - Digite (c) para fazer outro prato");
             opc = leia.next().charAt(0);
 
         } while (opc != 'n');
 
     }
 }
+
 
