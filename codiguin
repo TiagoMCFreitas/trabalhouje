@@ -27,7 +27,7 @@ public class trabalhouje {
 
         valoresPrato[0][0] = 2;
         valoresPrato[0][1] = 2;
-        valoresPrato[0][2] = 1; // valores dos pratos e seus contúdos
+        valoresPrato[0][2] = 1; // valores dos pratos e seus conteúdos
         valoresPrato[0][3] = 1;
 
         valoresPrato[1][0] = 1;
@@ -44,15 +44,17 @@ public class trabalhouje {
         System.out.println("\t\nProssiga e monte a sua jantinha como preferir!");
 
         do {
-            System.out.println("\n\nDeseja alterar o preço das porções? ((n) - não (c) - continuar)"); // comando para alterar o preço das porções
+            System.out.println("\n\nDeseja alterar o preço das porções? ((n) - não (c) - continuar)"); // comando para
+            // alterar o preço
+            // das porções
             opc = leia.next().charAt(0);
 
             while (opc != 'n' && opc != 'c') {
                 System.out.println("Digite somente -> ((n) - não continuar (c) - continuar)"); // validação, se o
                                                                                                // indivíduo digitar
                                                                                                // errado o código pede
-                                                                                               // para que digite
-                                                                                               // novamente
+                // para que digite
+                // novamente
                 opc = leia.next().charAt(0);
             }
             if (opc != 'n' && opc != 'c') { // comando para alterar o preço das porções
@@ -73,9 +75,13 @@ public class trabalhouje {
 
                 } while (s != 'n');
             }
+
             System.out.println("Escolha o prato desejado:(0 - Prato 1 , 1 - Prato 2 , 2 - Prato 3)");
             j = leia.nextInt();
-
+            while (j != 0 && j != 1 && j != 2 && j != 3) {
+                System.out.println("Numero inválido, digite apenas: (0 - Prato 1 , 1 - Prato 2 , 2 - Prato 3)");
+                j = leia.nextInt();
+            }
             System.out.println("\tOs condimentos presentes no prato são: ");
             System.out.println("\n Arroz " + valoresPrato[j][porcaoPrato]);
             porcaoPrato++;
@@ -85,14 +91,26 @@ public class trabalhouje {
             porcaoPrato++;
             System.out.println("\n Tropeiro " + valoresPrato[j][porcaoPrato]);
 
-            System.out.println("Deseja adicionar, ou tirar algum condimento do prato? (Digite c)");
+            System.out.println(
+                    "Deseja adicionar, ou tirar algum condimento do prato? ((n) - não continuar (c) - continuar)");
             s = leia.next().charAt(0);
-            if (s != 's') {
+            while (s != 'n' && s != 'c') {
+                System.out.println("Comando inválido, digite apenas: ((n) - não continuar (c) - continuar)");
+                s = leia.next().charAt(0);
+            }
+
+            if (s != 'n') {
                 do {
                     System.out.println(
                             "Escolha o condimento a ser alterado (0 - Arroz , 1 - Carne , 2 - Salada , 3 - Tropeiro)");
                     porcaoPrato = leia.nextInt();
 
+                    while (porcaoPrato != 0 && porcaoPrato != 1 && porcaoPrato != 2 && porcaoPrato != 3) {
+                        System.out.println(
+                                "Número inválido, digite: (0 - Arroz , 1 - Carne , 2 - Salada , 3 - Tropeiro)");
+                        porcaoPrato = leia.nextInt();
+
+                    }
                     System.out.println("Digite a nova quantidade do condimento: ");
                     novoValor = leia.nextInt();
                     valoresPrato[j][porcaoPrato] = novoValor;
