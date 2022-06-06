@@ -1,14 +1,7 @@
-package javaapplication6;
-
 import java.util.Scanner;
 
-/**
- *
- * @author aluno
- */
-public class NewClass {
-   
-
+//programajantinha ver2.2
+public class trabalhouje {
     public static void main(String[] args) {
         Scanner leia = new Scanner(System.in);
         char opc, s;
@@ -18,15 +11,14 @@ public class NewClass {
         int j;
         int i = 0;
         int porcaoPrato = 0;
-        double novoPreco = 0;
-        double novoValor;
+        int novoPreco = 0;
+        int novoValor;
         double arroz = 0;
         double carne = 0;
         double salada = 0;
         double tropeiro = 0;
         double total = 0;
-        int cont;
-
+        double aux = 0;
         pratoPadrao[0][0] = 4;
         pratoPadrao[1][0] = 7;
         pratoPadrao[2][0] = 3;
@@ -34,7 +26,7 @@ public class NewClass {
 
         valoresPrato[0][0] = 2;
         valoresPrato[0][1] = 2;
-        valoresPrato[0][2] = 1; // valores dos pratos e seus conteúdos
+        valoresPrato[0][2] = 1; // valores dos pratos e seus conteúdos,
         valoresPrato[0][3] = 1;
 
         valoresPrato[1][0] = 1;
@@ -64,14 +56,14 @@ public class NewClass {
                 // novamente
                 opc = leia.next().charAt(0);
             }
-            if (opc != 'n') { // comando para alterar o preço das porções
+            if (opc != 'n' && opc != 'c') { // comando para alterar o preço das porções
                 do {
                     System.out.println(
                             "Digite o valor do condimento que deseja alterar (0 - arroz, 1 - carne, 2 - salada, 3 - tropeiro)");
                     i = leia.nextInt();
 
                     System.out.println("Digite o novo valor do condimento: ");
-                    novoPreco = leia.nextDouble();
+                    novoPreco = leia.nextInt();
 
                     pratoPadrao[i][0] = novoPreco;
 
@@ -89,6 +81,7 @@ public class NewClass {
                 System.out.println("Numero inválido, digite apenas: (0 - Prato 1 , 1 - Prato 2 , 2 - Prato 3)");
                 j = leia.nextInt();
             }
+            porcaoPrato = 0;
             System.out.println("\tOs condimentos presentes no prato são: ");
             System.out.println("\n Arroz " + valoresPrato[j][porcaoPrato]);
             porcaoPrato++;
@@ -127,16 +120,15 @@ public class NewClass {
                     System.out.println("\n Carne " + valoresPrato[j][1]);
                     System.out.println("\n Salada " + valoresPrato[j][2]);
                     System.out.println("\n Tropeiro " + valoresPrato[j][3]);
-                    System.out.println("\n Digite s para sair: (c para continuar)");
+                    System.out.println("\n Digite (n) para sair e (c) para continuar)");
 
                     s = leia.next().charAt(0);
 
-                } while (s != 's');
+                } while (s != 'n');
 
             }
 
-            porcaoPrato = 0;
-            for (cont = 0; cont <= 3; cont++)
+            for (porcaoPrato = 0; porcaoPrato <= 3; porcaoPrato++)
 
             {
 
@@ -156,27 +148,25 @@ public class NewClass {
                     tropeiro = valoresPrato[j][porcaoPrato] * pratoPadrao[3][0];
 
                 }
-                porcaoPrato++;
 
             }
-            total = arroz + carne + salada + tropeiro;
+            total = aux + arroz + carne + salada + tropeiro;
+            aux = total;
             System.out.printf("O valor do seu prato é: R$%.2f\n", total);
-            System.out.println(" \tValor dos condimentos");
-            
-            for(int i2 = 0; i2<maxLin2; i2++){
-           for(int j2 = 0; j2<maxCol2; j2++){       // Mostrar o valor do custo de produção
-               
-               System.out.print("[" + pratoPadrao[i2][j2] + "]");
-           } 
-           System.out.print("\n");
-       }
-             
-            System.out.println("Digite (n) para sair - Digite (c) para fazer outro prato");
+
+            for (int i2 = 0; i2 < maxLin2; i2++) {
+                for (int j2 = 0; j2 < maxCol2; j2++) { // Mostrar o valor do custo de produção
+
+                    System.out.print("[" + pratoPadrao[i2][j2] + "]");
+                }
+                System.out.print("\n");
+            }
+
+            System.out.println("Digite (n) para sair e (c) para continuar.");
             opc = leia.next().charAt(0);
 
         } while (opc != 'n');
 
     }
 }
-
 
