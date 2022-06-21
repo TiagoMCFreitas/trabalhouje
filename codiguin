@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 //programajantinha ver2.2
-public class trabalhouje {
+public class TrabalhoUje {
 
     public static void main(String[] args) {
         Scanner leia = new Scanner(System.in);
@@ -49,7 +49,7 @@ public class trabalhouje {
         System.out.println("\t Bem vindo ao programa da jantinha:");
         System.out.println("\t\nProssiga e monte a sua jantinha como preferir!");
         do { // laço de repeticao
-            System.out.println("\n\nDeseja alterar o preço das porções? ((n) - não (c) - continuar)"); // para oferecer
+            System.out.println("\n\nAlterar o preço das porções (c) \nContinuar a montar a jantinha (n) "); // para oferecer
                                                                                                        // alteração do
                                                                                                        // preço
                                                                                                        // das porções
@@ -74,7 +74,7 @@ public class trabalhouje {
 
                     System.out.println("novo preco: " + pratoPadrao[i][0]);
 
-                    System.out.println("Para sair digite (n)");
+                    System.out.println("Para sair digite (n) para continuar, digite (c)");
                     s = leia.next().charAt(0);
 
                 } while (s != 'n');
